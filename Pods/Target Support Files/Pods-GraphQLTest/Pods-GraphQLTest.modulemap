@@ -1,0 +1,6 @@
+framework module Pods_GraphQLTest {
+  umbrella header "Pods-GraphQLTest-umbrella.h"
+
+  export *
+  module * { export * }
+}

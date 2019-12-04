@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		2B290C5F2396796500C6F93B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B290C5E2396796500C6F93B /* Assets.xcassets */; };
 		2B290C622396796500C6F93B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B290C602396796500C6F93B /* LaunchScreen.storyboard */; };
 		2B290C652396796500C6F93B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B290C642396796500C6F93B /* main.m */; };
+		BFB84BE6655E2D9B47D53005 /* Pods_GraphQLTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56041B6D702F5183E72385E6 /* Pods_GraphQLTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,9 @@
 		2B290C612396796500C6F93B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B290C632396796500C6F93B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B290C642396796500C6F93B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		56041B6D702F5183E72385E6 /* Pods_GraphQLTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphQLTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		596CAD83365559C90F1A9BD2 /* Pods-GraphQLTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQLTest.debug.xcconfig"; path = "Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest.debug.xcconfig"; sourceTree = "<group>"; };
+		DBE875A8E393FAB98E42DCE6 /* Pods-GraphQLTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQLTest.release.xcconfig"; path = "Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB84BE6655E2D9B47D53005 /* Pods_GraphQLTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C1EE43B867A906CCC94E82B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				596CAD83365559C90F1A9BD2 /* Pods-GraphQLTest.debug.xcconfig */,
+				DBE875A8E393FAB98E42DCE6 /* Pods-GraphQLTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		2B290C432396795300C6F93B = {
 			isa = PBXGroup;
 			children = (
 				2B290C4E2396795300C6F93B /* GraphQLTest */,
 				2B290C4D2396795300C6F93B /* Products */,
+				0C1EE43B867A906CCC94E82B /* Pods */,
+				70EEE259E2BECBFA1B894BB9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +97,14 @@
 			path = GraphQLTest;
 			sourceTree = "<group>";
 		};
+		70EEE259E2BECBFA1B894BB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56041B6D702F5183E72385E6 /* Pods_GraphQLTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,9 +112,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B290C682396796500C6F93B /* Build configuration list for PBXNativeTarget "GraphQLTest" */;
 			buildPhases = (
+				2C752E8C0C5A26D1DEDB7FC6 /* [CP] Check Pods Manifest.lock */,
 				2B290C482396795300C6F93B /* Sources */,
 				2B290C492396795300C6F93B /* Frameworks */,
 				2B290C4A2396795300C6F93B /* Resources */,
+				B2CB4EDA5A6F70D4D1DEFFB8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,6 +171,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C752E8C0C5A26D1DEDB7FC6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GraphQLTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2CB4EDA5A6F70D4D1DEFFB8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2B290C482396795300C6F93B /* Sources */ = {
@@ -293,7 +361,9 @@
 		};
 		2B290C692396796500C6F93B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 596CAD83365559C90F1A9BD2 /* Pods-GraphQLTest.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GraphQLTest/Info.plist;
@@ -309,7 +379,9 @@
 		};
 		2B290C6A2396796500C6F93B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBE875A8E393FAB98E42DCE6 /* Pods-GraphQLTest.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GraphQLTest/Info.plist;
