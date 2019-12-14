@@ -2,12 +2,14 @@ query GetSubject {
   subjects {
     id
     name
+    timeRequired
     questions {
       id
       title
       choices {
         id
         title
+        correct
       }
     }
   }

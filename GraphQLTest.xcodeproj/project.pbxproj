@@ -19,6 +19,10 @@
 		2BC675A2239797DF0016C812 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC675A1239797DF0016C812 /* API.swift */; };
 		2BC675E32397CCD40016C812 /* SubjectContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC675E22397CCD40016C812 /* SubjectContentView.swift */; };
 		2BC675E52397D7910016C812 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC675E42397D7910016C812 /* QuestionViewController.swift */; };
+		2BF8D12323A496A800D1953E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8D12223A496A800D1953E /* LoginViewController.swift */; };
+		2BF8D12623A4AD7B00D1953E /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8D12523A4AD7B00D1953E /* Subject.swift */; };
+		2BF8D12823A4DD1B00D1953E /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 2BF8D12723A4DD1A00D1953E /* schema.json */; };
+		2BF8D12A23A55C9500D1953E /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8D12923A55C9500D1953E /* ResultViewController.swift */; };
 		A254D241BE6C3CE1CE75570A /* Pods_GraphQLTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774C4CB457A9FC7F01A62004 /* Pods_GraphQLTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,10 @@
 		2BC675A1239797DF0016C812 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = GraphQLTest/API.swift; sourceTree = SOURCE_ROOT; };
 		2BC675E22397CCD40016C812 /* SubjectContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectContentView.swift; sourceTree = "<group>"; };
 		2BC675E42397D7910016C812 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		2BF8D12223A496A800D1953E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2BF8D12523A4AD7B00D1953E /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		2BF8D12723A4DD1A00D1953E /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = GraphQLTest/schema.json; sourceTree = SOURCE_ROOT; };
+		2BF8D12923A55C9500D1953E /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		774C4CB457A9FC7F01A62004 /* Pods_GraphQLTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphQLTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		969B00DFDEF52DFA0530B06C /* Pods-GraphQLTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQLTest.debug.xcconfig"; path = "Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest.debug.xcconfig"; sourceTree = "<group>"; };
 		BE0F4C8F04ED889B14855D34 /* Pods-GraphQLTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQLTest.release.xcconfig"; path = "Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,18 +83,16 @@
 		2BC67583239796080016C812 /* GraphQLTest */ = {
 			isa = PBXGroup;
 			children = (
+				2BF8D12423A4AD5B00D1953E /* models */,
+				2BF8D12123A4962500D1953E /* controllers */,
 				2BC6759E239797540016C812 /* apollo */,
 				2BC6759B2397969A0016C812 /* graphql */,
 				2BC67584239796080016C812 /* AppDelegate.swift */,
 				2BC67586239796080016C812 /* SceneDelegate.swift */,
-				2BC67588239796080016C812 /* FirstViewController.swift */,
-				2BC6758A239796080016C812 /* SecondViewController.swift */,
 				2BC6758C239796080016C812 /* Main.storyboard */,
 				2BC6758F2397960D0016C812 /* Assets.xcassets */,
 				2BC675912397960D0016C812 /* LaunchScreen.storyboard */,
 				2BC675942397960D0016C812 /* Info.plist */,
-				2BC675E22397CCD40016C812 /* SubjectContentView.swift */,
-				2BC675E42397D7910016C812 /* QuestionViewController.swift */,
 			);
 			path = GraphQLTest;
 			sourceTree = "<group>";
@@ -94,6 +100,7 @@
 		2BC6759B2397969A0016C812 /* graphql */ = {
 			isa = PBXGroup;
 			children = (
+				2BF8D12723A4DD1A00D1953E /* schema.json */,
 				2BC6759C239796B90016C812 /* queries.graphql */,
 			);
 			path = graphql;
@@ -106,6 +113,27 @@
 				2BC6759F239797650016C812 /* Network.swift */,
 			);
 			path = apollo;
+			sourceTree = "<group>";
+		};
+		2BF8D12123A4962500D1953E /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2BC67588239796080016C812 /* FirstViewController.swift */,
+				2BC6758A239796080016C812 /* SecondViewController.swift */,
+				2BC675E22397CCD40016C812 /* SubjectContentView.swift */,
+				2BC675E42397D7910016C812 /* QuestionViewController.swift */,
+				2BF8D12223A496A800D1953E /* LoginViewController.swift */,
+				2BF8D12923A55C9500D1953E /* ResultViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		2BF8D12423A4AD5B00D1953E /* models */ = {
+			isa = PBXGroup;
+			children = (
+				2BF8D12523A4AD7B00D1953E /* Subject.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 		52CB3002798E37329EB9C16B /* Frameworks */ = {
@@ -187,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BC675932397960D0016C812 /* LaunchScreen.storyboard in Resources */,
+				2BF8D12823A4DD1B00D1953E /* schema.json in Resources */,
 				2BC675902397960D0016C812 /* Assets.xcassets in Resources */,
 				2BC6759D239796B90016C812 /* queries.graphql in Resources */,
 				2BC6758E239796080016C812 /* Main.storyboard in Resources */,
@@ -259,14 +288,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF8D12323A496A800D1953E /* LoginViewController.swift in Sources */,
 				2BC675A0239797650016C812 /* Network.swift in Sources */,
 				2BC675E32397CCD40016C812 /* SubjectContentView.swift in Sources */,
 				2BC6758B239796080016C812 /* SecondViewController.swift in Sources */,
 				2BC67589239796080016C812 /* FirstViewController.swift in Sources */,
 				2BC67585239796080016C812 /* AppDelegate.swift in Sources */,
+				2BF8D12623A4AD7B00D1953E /* Subject.swift in Sources */,
 				2BC675A2239797DF0016C812 /* API.swift in Sources */,
 				2BC675E52397D7910016C812 /* QuestionViewController.swift in Sources */,
 				2BC67587239796080016C812 /* SceneDelegate.swift in Sources */,
+				2BF8D12A23A55C9500D1953E /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

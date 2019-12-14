@@ -12,6 +12,7 @@ public final class GetSubjectQuery: GraphQLQuery {
         __typename
         id
         name
+        timeRequired
         questions {
           __typename
           id
@@ -20,6 +21,7 @@ public final class GetSubjectQuery: GraphQLQuery {
             __typename
             id
             title
+            correct
           }
         }
       }
@@ -64,6 +66,7 @@ public final class GetSubjectQuery: GraphQLQuery {
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .scalar(GraphQLID.self)),
         GraphQLField("name", type: .scalar(String.self)),
+        GraphQLField("timeRequired", type: .scalar(Int.self)),
         GraphQLField("questions", type: .list(.object(Question.selections))),
       ]
 
@@ -73,8 +76,8 @@ public final class GetSubjectQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID? = nil, name: String? = nil, questions: [Question?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Subject", "id": id, "name": name, "questions": questions.flatMap { (value: [Question?]) -> [ResultMap?] in value.map { (value: Question?) -> ResultMap? in value.flatMap { (value: Question) -> ResultMap in value.resultMap } } }])
+      public init(id: GraphQLID? = nil, name: String? = nil, timeRequired: Int? = nil, questions: [Question?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Subject", "id": id, "name": name, "timeRequired": timeRequired, "questions": questions.flatMap { (value: [Question?]) -> [ResultMap?] in value.map { (value: Question?) -> ResultMap? in value.flatMap { (value: Question) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -101,6 +104,15 @@ public final class GetSubjectQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      public var timeRequired: Int? {
+        get {
+          return resultMap["timeRequired"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "timeRequired")
         }
       }
 
@@ -176,6 +188,7 @@ public final class GetSubjectQuery: GraphQLQuery {
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .scalar(GraphQLID.self)),
             GraphQLField("title", type: .scalar(String.self)),
+            GraphQLField("correct", type: .scalar(Bool.self)),
           ]
 
           public private(set) var resultMap: ResultMap
@@ -184,8 +197,8 @@ public final class GetSubjectQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(id: GraphQLID? = nil, title: String? = nil) {
-            self.init(unsafeResultMap: ["__typename": "Choice", "id": id, "title": title])
+          public init(id: GraphQLID? = nil, title: String? = nil, correct: Bool? = nil) {
+            self.init(unsafeResultMap: ["__typename": "Choice", "id": id, "title": title, "correct": correct])
           }
 
           public var __typename: String {
@@ -212,6 +225,15 @@ public final class GetSubjectQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue, forKey: "title")
+            }
+          }
+
+          public var correct: Bool? {
+            get {
+              return resultMap["correct"] as? Bool
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "correct")
             }
           }
         }
