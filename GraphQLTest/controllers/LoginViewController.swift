@@ -42,6 +42,7 @@ class LoginViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         } else {
             lblError.text = "Wrong email or password. Please try again"
+            lblError.isHidden = false
         }
         
         

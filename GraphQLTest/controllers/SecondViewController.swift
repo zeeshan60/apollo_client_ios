@@ -32,7 +32,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     private func reloadData() {
         dataSource = Subject.findAll()?.filter { (subject: Subject) -> Bool in
-            subject.scheduled && !(subject.testTaken ?? false)
+            subject.scheduled
         }
         self.tableView.reloadData()
     }
@@ -62,7 +62,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if segue.identifier == "take_test" {
             let controller = segue.destination as! QuestionViewController
 
-            controller.subject = self.selectedSubject
+            controller.subject = Subject.find(id: self.selectedSubject!.id!)
         }
     }
 }

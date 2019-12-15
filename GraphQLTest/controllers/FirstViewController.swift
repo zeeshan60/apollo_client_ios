@@ -47,13 +47,11 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        title = "Subjects"
+        self.title = "Subjects"
+        self.navigationItem.title = "Subjects"
     }
 
     private func reloadData() { // Do any additional setup after loading the view.
-        let subjects = Subject.findAll()
-        if subjects == nil {
-
             Network.shared.apollo.fetch(query: GetSubjectQuery()) { result in
                 switch result {
                 case .success(let graphQLResult):
@@ -63,7 +61,14 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
                     }
 
                     let subjects: [Subject] = subs.map { (subject: GetSubjectQuery.Data.Subject?) -> Subject in
-                        return Subject(subject: subject!)
+                        let sub = Subject(subject: subject!)
+                        let existing = Subject.find(id: sub.id!)
+                        if (existing != nil) {
+                            sub.totalAttempts = existing?.totalAttempts ?? 0
+                            sub.successAttempts = existing?.successAttempts ?? 0
+                            sub.scheduled = existing?.scheduled ?? false
+                        }
+                        return sub
                     }
                     Subject.saveAll(subjects: subjects)
                     DispatchQueue.main.async {
@@ -74,9 +79,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
                     print("Failure! Error: \(error)")
                 }
             }
-        } else {
-            self.loadData(subjects: subjects!)
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

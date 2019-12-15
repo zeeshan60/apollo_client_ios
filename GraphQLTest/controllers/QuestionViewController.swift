@@ -47,6 +47,7 @@ class QuestionViewController: UIViewController {
     }
 
     private func loadQuestion() {
+        unselectAllChoices()
         var index: Int = selectedQuestionIndex
         
         if selectedQuestionIndex >= self.subject?.questions?.count ?? 0 {
@@ -175,7 +176,15 @@ class QuestionViewController: UIViewController {
 
         subject?.testTaken = true
         subject?.save()
-        self.navigationController?.popViewController(animated: true)
+        self.performSegue(withIdentifier: "result_segue", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "result_segue" {
+            let controller = segue.destination as! ResultViewController
+
+            controller.dataSource = self.subject
+        }
     }
 
     private func updateTimer(totalTime: Int) {

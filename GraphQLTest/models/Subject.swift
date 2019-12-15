@@ -18,6 +18,20 @@ class Subject: NSObject, NSSecureCoding {
     var questions: [Question]?
     var testTaken: Bool?
     var scheduled: Bool = false
+    var totalAttempts: Int = 0
+    var successAttempts: Int = 0
+
+    init(id: String?, name: String?, timeRequired: Int?, questions: [Question]?, testTaken: Bool?, scheduled: Bool, totalAttempts: Int, successAttempts: Int) {
+        self.id = id
+        self.name = name
+        self.timeRequired = timeRequired
+        self.questions = questions
+        self.testTaken = testTaken
+        self.scheduled = scheduled
+        self.totalAttempts = totalAttempts
+        self.successAttempts = successAttempts
+        super.init()
+    }
 
     init(subject: GetSubjectQuery.Data.Subject) {
         self.id = subject.id
@@ -36,6 +50,8 @@ class Subject: NSObject, NSSecureCoding {
         coder.encode(self.timeRequired, forKey: "timeRequired")
         coder.encode(self.testTaken, forKey: "testTaken")
         coder.encode(self.scheduled, forKey: "scheduled")
+        coder.encode(self.totalAttempts, forKey: "totalAttempts")
+        coder.encode(self.successAttempts, forKey: "successAttempts")
     }
 
     required init?(coder: NSCoder) {
@@ -46,6 +62,8 @@ class Subject: NSObject, NSSecureCoding {
         self.timeRequired = (coder.decodeObject(forKey: "timeRequired") as? Int)
         self.testTaken = (coder.decodeObject(forKey: "testTaken") as? Bool)
         self.scheduled = coder.decodeBool(forKey: "scheduled")
+        self.totalAttempts = coder.decodeInteger(forKey: "totalAttempts")
+        self.successAttempts = coder.decodeInteger(forKey: "successAttempts")
     }
 
     func toData() -> Data? {
@@ -78,6 +96,14 @@ class Subject: NSObject, NSSecureCoding {
         }
         if foundIndex != -1 {
             subjects.remove(at: foundIndex)
+            self.totalAttempts += 1
+            let correctQuestions: Array<Question>? = self.questions?.filter { (question: Question) -> Bool in
+                question.isAnsweredCorrect()
+            }
+
+            if correctQuestions!.count * 100 / self.questions!.count >= 60 {
+                self.successAttempts += 1
+            }
             subjects.insert(self, at: foundIndex)
         } else {
 
@@ -134,6 +160,13 @@ class Question: NSObject, NSSecureCoding {
     var title: String?
     var choices: [Choice]?
 
+    init(id: String?, title: String?, choices: [Choice]?) {
+        self.id = id
+        self.title = title
+        self.choices = choices
+        super.init()
+    }
+
     init(question: GetSubjectQuery.Data.Subject.Question) {
         self.id = question.id
         self.title = question.title
@@ -175,6 +208,14 @@ class Choice: NSObject, NSSecureCoding {
     var selected: Bool = false
     var correct: Bool = false
 
+    init(id: String?, title: String?, selected: Bool, correct: Bool) {
+        self.id = id
+        self.title = title
+        self.selected = selected
+        self.correct = correct
+        super.init()
+    }
+
     init(choice: GetSubjectQuery.Data.Subject.Question.Choice) {
         self.id = choice.id
         self.title = choice.title
@@ -186,11 +227,13 @@ class Choice: NSObject, NSSecureCoding {
         coder.encode(self.id, forKey: "id")
         coder.encode(self.title, forKey: "title")
         coder.encode(self.selected, forKey: "selected")
+        coder.encode(self.correct, forKey: "correct")
     }
 
     required init?(coder: NSCoder) {
         self.id = (coder.decodeObject(forKey: "id") as! String)
         self.title = (coder.decodeObject(forKey: "title") as! String)
         self.selected = coder.decodeBool(forKey: "selected")
+        self.correct = coder.decodeBool(forKey: "correct")
     }
 }
