@@ -2,8 +2,8 @@
 //  ResultViewController.swift
 //  GraphQLTest
 //
-//  Created by Zeeshan Tufail on 15/12/19.
-//  Copyright © 2019 Zeeshan Tufail. All rights reserved.
+//  Created by Noman Tufail on 15/12/19.
+//  Copyright © 2019 Noman Tufail. All rights reserved.
 //
 
 import UIKit

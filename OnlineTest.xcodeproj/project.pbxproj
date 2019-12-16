@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2BC67581239796080016C812 /* GraphQLTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQLTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BC67581239796080016C812 /* OnlineTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC67584239796080016C812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC67586239796080016C812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2BC67588239796080016C812 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		2BC67582239796080016C812 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2BC67581239796080016C812 /* GraphQLTest.app */,
+				2BC67581239796080016C812 /* OnlineTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,9 +156,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2BC67580239796080016C812 /* GraphQLTest */ = {
+		2BC67580239796080016C812 /* OnlineTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BC675972397960D0016C812 /* Build configuration list for PBXNativeTarget "GraphQLTest" */;
+			buildConfigurationList = 2BC675972397960D0016C812 /* Build configuration list for PBXNativeTarget "OnlineTest" */;
 			buildPhases = (
 				758A65A5CE88D8CB38C12EEB /* [CP] Check Pods Manifest.lock */,
 				2BC6757D239796080016C812 /* Sources */,
@@ -171,9 +171,9 @@
 			);
 			dependencies = (
 			);
-			name = GraphQLTest;
+			name = OnlineTest;
 			productName = GraphQLTest;
-			productReference = 2BC67581239796080016C812 /* GraphQLTest.app */;
+			productReference = 2BC67581239796080016C812 /* OnlineTest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -184,14 +184,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1120;
-				ORGANIZATIONNAME = "Zeeshan Tufail";
+				ORGANIZATIONNAME = "Noman Tufail";
 				TargetAttributes = {
 					2BC67580239796080016C812 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
 			};
-			buildConfigurationList = 2BC6757C239796080016C812 /* Build configuration list for PBXProject "GraphQLTest" */;
+			buildConfigurationList = 2BC6757C239796080016C812 /* Build configuration list for PBXProject "OnlineTest" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -204,7 +204,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2BC67580239796080016C812 /* GraphQLTest */,
+				2BC67580239796080016C812 /* OnlineTest */,
 			);
 		};
 /* End PBXProject section */
@@ -477,7 +477,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2BC6757C239796080016C812 /* Build configuration list for PBXProject "GraphQLTest" */ = {
+		2BC6757C239796080016C812 /* Build configuration list for PBXProject "OnlineTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BC675952397960D0016C812 /* Debug */,
@@ -486,7 +486,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BC675972397960D0016C812 /* Build configuration list for PBXNativeTarget "GraphQLTest" */ = {
+		2BC675972397960D0016C812 /* Build configuration list for PBXNativeTarget "OnlineTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BC675982397960D0016C812 /* Debug */,
