@@ -12,6 +12,7 @@ class SubjectContentView: UIView {
 
     weak var delegate: FirstViewController?;
     @IBOutlet weak var lblSubjectName: UILabel!;
+    @IBOutlet weak var lblTotalQuestions: UILabel!;
     @IBOutlet weak var btnTakeTest: UIButton!;
     @IBOutlet weak var btnSchedule: UIButton!;
 
@@ -26,6 +27,7 @@ class SubjectContentView: UIView {
         self.layer.shadowOffset = CGSize(width: 5, height: 5)
         self.backgroundColor = UIColor(displayP3Red: 0.9, green: 0.9, blue: 0.85, alpha: 1)
         self.btnTakeTest.setTitle("Take Test", for: .normal)
+        self.lblTotalQuestions.text = String(format: "Total Questions %d",  subject.questions!.count as! CVarArg);
         self.btnTakeTest.isUserInteractionEnabled = true
         self.btnTakeTest.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 0.8, alpha: 1)
         self.btnTakeTest.layer.cornerRadius = 3

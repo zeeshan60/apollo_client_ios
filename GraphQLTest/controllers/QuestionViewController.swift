@@ -40,10 +40,18 @@ class QuestionViewController: UIViewController {
 
         self.updateTimer(totalTime: self.totalTime!)
 
-        self.startOtpTimer()
         // Do any additional setup after loading the view.
 
         loadQuestion()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.startOtpTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.timer?.invalidate()
     }
 
     private func loadQuestion() {
@@ -86,12 +94,18 @@ class QuestionViewController: UIViewController {
     @IBAction func choice1Click(sender: UIButton) {
         unselectAllChoices()
         self.choice1Container.backgroundColor = UIColor.lightGray
+        self.subject?.questions?[selectedQuestionIndex].choices?.forEach({ (chioce : Choice) in
+            chioce.selected = false;
+        });
         self.subject?.questions?[selectedQuestionIndex].choices?[0].selected = true
     }
 
     @IBAction func choice2Click(sender: UIButton) {
         unselectAllChoices()
         self.choice2Container.backgroundColor = UIColor.lightGray
+        self.subject?.questions?[selectedQuestionIndex].choices?.forEach({ (chioce : Choice) in
+            chioce.selected = false;
+        });
         self.subject?.questions?[selectedQuestionIndex].choices?[1].selected = true
 
     }
@@ -99,6 +113,9 @@ class QuestionViewController: UIViewController {
     @IBAction func choice3Click(sender: UIButton) {
         unselectAllChoices()
         self.choice3Container.backgroundColor = UIColor.lightGray
+        self.subject?.questions?[selectedQuestionIndex].choices?.forEach({ (chioce : Choice) in
+            chioce.selected = false;
+        });
         self.subject?.questions?[selectedQuestionIndex].choices?[2].selected = true
 
     }
@@ -106,6 +123,9 @@ class QuestionViewController: UIViewController {
     @IBAction func choice4Click(sender: UIButton) {
         unselectAllChoices()
         self.choice4Container.backgroundColor = UIColor.lightGray
+        self.subject?.questions?[selectedQuestionIndex].choices?.forEach({ (chioce : Choice) in
+            chioce.selected = false;
+        });
         self.subject?.questions?[selectedQuestionIndex].choices?[3].selected = true
 
     }
@@ -116,26 +136,63 @@ class QuestionViewController: UIViewController {
         self.choice3Container.backgroundColor = UIColor.clear
         self.choice4Container.backgroundColor = UIColor.clear
     }
+    @IBAction func quitClick(sender: UIButton) {
+        if selectedQuestionIndex == (self.subject!.questions!.count-1) && self.anyChoiceSelected() {
 
+            let alert = UIAlertController(title: "Alert!", message: "Are you sure you want to quit?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "YES", style: .default)
+            { action in
+                self.navigationController?.popViewController(animated: true)
+                
+            })
+            alert.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            
+            let alert = UIAlertController(title: "Alert!", message: "You must complete all questions!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func anyChoiceSelected() -> Bool{
+        if selectedQuestionIndex == self.subject?.questions?.count {
+            return true;
+        }
+        var choiceSelected = false;
+        for choice in self.subject!.questions![selectedQuestionIndex].choices! {
+            if choice.selected {
+                choiceSelected = true;
+                break;
+            }
+        }
+        return choiceSelected;
+    }
+    
     @IBAction func nextClick(sender: UIButton) {
 
-        UIView.animate(withDuration: 0.2,
-                animations: { [weak self] () -> Void in self?.questionContainer.alpha = 0.2 },
-                completion: { [weak self] b in
+        let choiceSelected = self.anyChoiceSelected()
+        
+        if choiceSelected {
 
-                    guard let self = self else {
-                        return
-                    }
+            UIView.animate(withDuration: 0.2,
+                    animations: { [weak self] () -> Void in self?.questionContainer.alpha = 0.2 },
+                    completion: { [weak self] b in
 
-                    self.selectedQuestionIndex += 1
-                    if self.subject?.questions?.count == self.selectedQuestionIndex {
-                        self.finishTest()
-                        return;
-                    }
-                    self.loadQuestion()
-                    UIView.animate(withDuration: 0.2,
-                            animations: { () -> Void in self.questionContainer.alpha = 1 })
-                })
+                        guard let self = self else {
+                            return
+                        }
+
+                        self.selectedQuestionIndex += 1
+                        if self.subject?.questions?.count == self.selectedQuestionIndex {
+                            self.finishTest()
+                            return;
+                        }
+                        self.loadQuestion()
+                        UIView.animate(withDuration: 0.2,
+                                animations: { () -> Void in self.questionContainer.alpha = 1 })
+                    })
+        }
     }
 
     private func startOtpTimer() {
@@ -147,7 +204,7 @@ class QuestionViewController: UIViewController {
                 return
             }
 
-            if !self.alertShown && totalTime <= self.subject!.timeRequired! / 2 {
+            if !self.alertShown && totalTime <= self.subject!.timeRequired! * 60 / 2 {
 
                 let alert = UIAlertController(title: "Alert!", message: "Half time passed", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
