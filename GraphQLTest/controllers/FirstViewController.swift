@@ -43,7 +43,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
 
 
         //todo zeeshan enable logging
-//        self.performSegue(withIdentifier: "login_segue", sender: self)
+        self.performSegue(withIdentifier: "login_segue", sender: self)
 
         collectionView.delegate = self
         collectionView.dataSource = self
