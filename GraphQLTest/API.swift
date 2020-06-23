@@ -1,3 +1,4 @@
+// @generated
 //  This file was automatically generated and should not be edited.
 
 import Apollo
@@ -5,7 +6,7 @@ import Foundation
 
 public final class GetSubjectQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
-  public let operationDefinition =
+  public let operationDefinition: String =
     """
     query GetSubject {
       subjects {
@@ -28,13 +29,13 @@ public final class GetSubjectQuery: GraphQLQuery {
     }
     """
 
-  public let operationName = "GetSubject"
+  public let operationName: String = "GetSubject"
 
   public init() {
   }
 
   public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Query"]
+    public static let possibleTypes: [String] = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
       GraphQLField("subjects", type: .list(.object(Subject.selections))),
@@ -60,7 +61,7 @@ public final class GetSubjectQuery: GraphQLQuery {
     }
 
     public struct Subject: GraphQLSelectionSet {
-      public static let possibleTypes = ["Subject"]
+      public static let possibleTypes: [String] = ["Subject"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -126,7 +127,7 @@ public final class GetSubjectQuery: GraphQLQuery {
       }
 
       public struct Question: GraphQLSelectionSet {
-        public static let possibleTypes = ["Question"]
+        public static let possibleTypes: [String] = ["Question"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -182,7 +183,7 @@ public final class GetSubjectQuery: GraphQLQuery {
         }
 
         public struct Choice: GraphQLSelectionSet {
-          public static let possibleTypes = ["Choice"]
+          public static let possibleTypes: [String] = ["Choice"]
 
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),

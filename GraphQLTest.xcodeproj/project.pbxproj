@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2BC67581239796080016C812 /* OnlineTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BC67581239796080016C812 /* GraphQLTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQLTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC67584239796080016C812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC67586239796080016C812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2BC67588239796080016C812 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		2BC67582239796080016C812 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2BC67581239796080016C812 /* OnlineTest.app */,
+				2BC67581239796080016C812 /* GraphQLTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,24 +156,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2BC67580239796080016C812 /* OnlineTest */ = {
+		2BC67580239796080016C812 /* GraphQLTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BC675972397960D0016C812 /* Build configuration list for PBXNativeTarget "OnlineTest" */;
+			buildConfigurationList = 2BC675972397960D0016C812 /* Build configuration list for PBXNativeTarget "GraphQLTest" */;
 			buildPhases = (
 				758A65A5CE88D8CB38C12EEB /* [CP] Check Pods Manifest.lock */,
 				2BC6757D239796080016C812 /* Sources */,
 				2BC6757E239796080016C812 /* Frameworks */,
 				2BC6757F239796080016C812 /* Resources */,
-				3C74ED1C197399A46BE35902 /* [CP] Embed Pods Frameworks */,
 				2BC6759A2397964E0016C812 /* ShellScript */,
+				75B0D381D67CFB10F4901C46 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = OnlineTest;
+			name = GraphQLTest;
 			productName = GraphQLTest;
-			productReference = 2BC67581239796080016C812 /* OnlineTest.app */;
+			productReference = 2BC67581239796080016C812 /* GraphQLTest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -191,7 +191,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2BC6757C239796080016C812 /* Build configuration list for PBXProject "OnlineTest" */;
+			buildConfigurationList = 2BC6757C239796080016C812 /* Build configuration list for PBXProject "GraphQLTest" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -204,7 +204,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2BC67580239796080016C812 /* OnlineTest */,
+				2BC67580239796080016C812 /* GraphQLTest */,
 			);
 		};
 /* End PBXProject section */
@@ -242,23 +242,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nSCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=http://localhost:4000/graphql schema.json\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
 		};
-		3C74ED1C197399A46BE35902 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		758A65A5CE88D8CB38C12EEB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +262,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75B0D381D67CFB10F4901C46 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GraphQLTest/Pods-GraphQLTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -450,7 +450,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zeeshan.GraphQLTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GraphQLTest;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -468,7 +468,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zeeshan.GraphQLTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GraphQLTest;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -477,7 +477,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2BC6757C239796080016C812 /* Build configuration list for PBXProject "OnlineTest" */ = {
+		2BC6757C239796080016C812 /* Build configuration list for PBXProject "GraphQLTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BC675952397960D0016C812 /* Debug */,
@@ -486,7 +486,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BC675972397960D0016C812 /* Build configuration list for PBXNativeTarget "OnlineTest" */ = {
+		2BC675972397960D0016C812 /* Build configuration list for PBXNativeTarget "GraphQLTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BC675982397960D0016C812 /* Debug */,
